@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+    <title>Document</title>
+    <style>
+        html, body {
+            overflow-y: hidden; /* Prevent scrollbars */
+        }
+
+        .section-head {
+            position: fixed;
+        }
+
+        .code-container {
+            height: 850px;
+        }
+
+        .code-body {
+            position: relative;
+            margin-top: 40px;
+        }
+        /* Hide the scrollbar */
+        ::-webkit-scrollbar {
+            width: 0px; /* No width for vertical scrollbar */
+            height: 0px; /* No height for horizontal scrollbar */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: transparent; /* Optional: Make scrollbar thumb transparent */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent; /* Optional: Make scrollbar track transparent */
+        }
+    </style>
+</head>
+<body>
+    <div class = "geospatial-python">
+        <div class = "section-head">
+            <p>Geospatial Python.</p>&nbsp;
+            <p class = "geo-sub-title">Do Spatial Analysis with Python.</p>
+        </div>
+        <div class = "code-container">
+            <div class = "code-body">
+                <div class = "code-content">
+                    <pre><code id="code1" class="language-python"></code></pre>
+                </div>
+                <div class = "code-description">
+                    <p class = "heading">Reading/Writing GeoTiff Files with "Rasterio"</p>
+                    <p>
+                        Rasterio is one of the most used and easy to implement python module for reading and writing GeoTiff files. The ".read()" method in rasterio yields a
+                        numpy array which makes it easy to perform complex mathematical calculations on the read 
+                        raster.
+                    </p>
+                </div>
+            </div>
+            <div class = "code-body">
+                <div class = "code-content">
+                    <pre><code id="code2" class="language-python"></code></pre>
+                </div>
+                <div class = "code-description">
+                    <p class = "heading">Reading/Writing Vector Files with "Geopandas"</p>
+                    <p>
+                        Geopandas is one of the most used python module for vector data analysis.
+                        The resulatant of the ".read_file()" method in geopandas yields a GeoDataFrame which 
+                        mimics "pandas" (a popular module in python for handling table type files like csv, 
+                        xls, xlsx, etc.) DataFrame to some extent making it easy for user to learn and apply 
+                        most of the functionalities of a common dataframe if they have worked with pandas before.
+                    </p>
+                </div>
+            </div>
+            <div class = "code-body">
+                <div class = "code-content">
+                    <pre><code id="code3" class="language-python"></code></pre>
+                </div>
+                <div class = "code-description">
+                    <p class = "heading">Creating GeoTiff from GEE fetched array over a Region</p>
+                    <p>
+                        Earth Engine's Python API allows users to use the best of both worlds i.e.,
+                        combining the power of python modules and speed of Google Earth Engine. I have
+                        tried creating GeoTiffs in python after calculating a demo index for 
+                        time-series images over a location using Sentinel-2 dataset in earth engine
+                        repository.
+                    </p>
+                </div>
+            </div>
+            <div class = "code-body">
+                <div class = "code-content">
+                    <pre><code id="code4" class="language-python"></code></pre>
+                </div>
+                <div class = "code-description">
+                    <p class = "heading">Preliminary Urban Sprawl Automation</p>
+                    <p>
+                        This code snippet is shared from the talk I gave on "Let's Talk Spatial" meetup
+                        held on 21st January 2023 at IIHS Bangalore City campus. Do check out the stream 
+                        where I have explained the attached snippet in detail and watch all the amazing things 
+                        you missed.
+                        <a href="https://youtu.be/DZBARqXf_bc" target="_blank" rel="noopener noreferrer">
+                        Click to watch the stream.</a>
+                    </p>
+                </div>
+            </div>
+            <div class = "code-body">
+                <div class = "code-content">
+                    <pre><code id="code5" class="language-python"></code></pre>
+                </div>
+                <div class = "code-description">
+                    <p class = "heading">Downloading Sentinel-1/2 Image(s) from Copernicus Hub</p>
+                    <p>
+                        The Code Snippet gives a basic walkthrough of how to download 
+                        satellite data for Sentinel-1/2 from Copernicus Hub using Python.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Dynamically load text files and insert them into code blocks
+        document.addEventListener('DOMContentLoaded', () => {
+            const files = [
+                './python_files/geospatial/0000_script.py',
+                './python_files/geospatial/0001_script.py',
+                './python_files/geospatial/0002_script.py',
+                './python_files/geospatial/0003_script.py',
+                './python_files/geospatial/0004_script.py',
+            ];
+
+            files.forEach((file, index) => {
+                fetch(file)
+                    .then(response => response.text())
+                    .then(data => {
+                        const codeBlock = document.getElementById(`code${index + 1}`);
+                        codeBlock.textContent = data; // Set file content
+                        hljs.highlightElement(codeBlock); // Apply Highlight.js
+                    })
+                    .catch(error => console.error(`Error loading file ${file}:`, error));
+            });
+        });
+    </script>
+</body>
+</html>

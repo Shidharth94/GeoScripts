@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+    <title>Document</title>
+    <style>
+        html, body {
+            overflow-y: hidden; /* Prevent scrollbars */
+        }
+
+        .section-head {
+            position: fixed;
+        }
+
+        .code-container {
+            height: 850px;
+        }
+
+        .code-body {
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .code-description {
+            background-color: #cdecff;
+        }
+
+        /* Hide the scrollbar */
+        ::-webkit-scrollbar {
+            width: 0px; /* No width for vertical scrollbar */
+            height: 0px; /* No height for horizontal scrollbar */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: transparent; /* Optional: Make scrollbar thumb transparent */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent; /* Optional: Make scrollbar track transparent */
+        }
+    </style>
+</head>
+<body>
+    <div class = "earth-engine">
+        <div class = "section-head">
+            <p>Google Earth Engine.</p>&nbsp;
+            <p class = "geo-sub-title">Spatial Analysis on Cloud.</p>
+        </div>
+        <div class = "code-container">
+            <div class = "code-body">
+                <div class = "code-content">
+                    <pre><code id="code1" class="language-javascript"></code></pre>
+                </div>
+                <div class = "code-description">
+                    <p class = "heading">RGB and FCC Visualisation</p>
+                    <p>
+                        Basic Google Earth Engine Script to visualise RGB and FCC image 
+                        composites of a satellite image filtered based on a study area geometry 
+                        and time-frame based on a start and end date.
+                    </p>
+                </div>
+            </div>
+            <div class = "code-body">
+                <div class = "code-content">
+                    <pre><code id="code2" class="language-javascript"></code></pre>
+                </div>
+                <div class = "code-description">
+                    <p class = "heading">Satellite Image Indices Generation Methods</p>
+                    <p>
+                        A Google Earth Engine Script to visualise image indices generated from 
+                        satellite image band combinations using 3 different methods.
+                    </p>
+                </div>
+            </div>
+            <div class = "code-body">
+                <div class = "code-content">
+                    <pre><code id="code3" class="language-javascript"></code></pre>
+                </div>
+                <div class = "code-description">
+                    <p class = "heading">Quality Mosaic Image based on a Band</p>
+                    <p>
+                        A Google Earth Engine Script to map a function over an image collection
+                        to generate indices for all the bands in the collection and add the 
+                        generated index bands into the existing images. Creation of Quality mosaic
+                        using the generated index band. 
+                    </p>
+                </div>
+            </div>
+            <div class = "code-body">
+                <div class = "code-content">
+                    <pre><code id="code4" class="language-javascript"></code></pre>
+                </div>
+                <div class = "code-description">
+                    <p class = "heading">Zonal Stats Over a Multi-Band Image</p>
+                    <p>
+                        A Google Earth Engine Script to compute zonal statistics over a 
+                        multi-band NDVI image using a single geometry and a list of geometries
+                        packaged as a feature collection.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Dynamically load text files and insert them into code blocks
+        document.addEventListener('DOMContentLoaded', () => {
+            const files = [
+                './python_files/gee-scripts/0000_script.js',
+                './python_files/gee-scripts/0001_script.js',
+                './python_files/gee-scripts/0002_script.js',
+                './python_files/gee-scripts/0003_script.js'
+            ];
+
+            files.forEach((file, index) => {
+                fetch(file)
+                    .then(response => response.text())
+                    .then(data => {
+                        const codeBlock = document.getElementById(`code${index + 1}`);
+                        codeBlock.textContent = data; // Set file content
+                        hljs.highlightElement(codeBlock); // Apply Highlight.js
+                    })
+                    .catch(error => console.error(`Error loading file ${file}:`, error));
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+    <title>Document</title>
+    <style>
+        html, body {
+            overflow-y: hidden; /* Prevent scrollbars */
+        }
+
+        .section-head {
+            position: fixed;
+        }
+
+        .code-container {
+            height: 850px;
+        }
+
+        .code-body {
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .code-description {
+            background-color: rgb(255, 222, 222);
+        }
+
+        /* Hide the scrollbar */
+        ::-webkit-scrollbar {
+            width: 0px; /* No width for vertical scrollbar */
+            height: 0px; /* No height for horizontal scrollbar */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: transparent; /* Optional: Make scrollbar thumb transparent */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent; /* Optional: Make scrollbar track transparent */
+        }
+    </style>
+</head>
+<body>
+    <div class = "general-python">
+        <div class = "section-head">
+            <p>Getting Started with Python.</p>&nbsp;
+            <p class = "geo-sub-title">Python Scripting made easy.</p>
+        </div>
+        <div class = "code-container">
+            <div class = "code-body">
+                <div class = "code-content">
+                    <pre><code id="code1" class="language-python"></code></pre>
+                </div>
+                <div class = "code-description">
+                    <p class = "heading">"if-elif-else" Loop</p>
+                    <p>
+                        if-elif-else loop in python is very convienient to work with problems where 
+                        clusters can be formed based on value ranges. For example it can be used for land use / land cover 
+                        classification using satellite images based on threshold values of NDVI.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Dynamically load text files and insert them into code blocks
+        document.addEventListener('DOMContentLoaded', () => {
+            const files = [
+                './python_files/general-python/0000_script.py',
+            ];
+
+            files.forEach((file, index) => {
+                fetch(file)
+                    .then(response => response.text())
+                    .then(data => {
+                        const codeBlock = document.getElementById(`code${index + 1}`);
+                        codeBlock.textContent = data; // Set file content
+                        hljs.highlightElement(codeBlock); // Apply Highlight.js
+                    })
+                    .catch(error => console.error(`Error loading file ${file}:`, error));
+            });
+        });
+    </script>
+</body>
+</html>
