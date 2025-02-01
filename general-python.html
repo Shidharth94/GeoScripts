@@ -53,6 +53,7 @@
         </div>
         <div class = "code-container">
             <div class = "code-body">
+                <button class="copy-button" onclick="copy_to_clipboard('code1', this)" ><p>copy</p></button>
                 <div class = "code-content">
                     <pre><code id="code1" class="language-python"></code></pre>
                 </div>
@@ -72,7 +73,7 @@
         // Dynamically load text files and insert them into code blocks
         document.addEventListener('DOMContentLoaded', () => {
             const files = [
-                './python_files/general-python/0000_script.py',
+                './src/general-python/0000_script.py',
             ];
 
             files.forEach((file, index) => {
@@ -86,6 +87,18 @@
                     .catch(error => console.error(`Error loading file ${file}:`, error));
             });
         });
+        function copy_to_clipboard(elm_id, button) {
+            var text = document.getElementById(elm_id).textContent;
+            navigator.clipboard.writeText(text);
+
+            // Select only the <p> inside the clicked button
+            let buttonText = button.querySelector("p");
+            buttonText.innerHTML = "copied!";
+
+            setTimeout(function () {
+                buttonText.innerHTML = "copy";
+            }, 5000); // Change text back after 5 seconds
+        }
     </script>
 </body>
 </html>
