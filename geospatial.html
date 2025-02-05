@@ -123,6 +123,21 @@
                     </p>
                 </div>
             </div>
+            <div class = "code-body">
+                <button class="copy-button" onclick="copy_to_clipboard('code6', this)" ><p>copy</p></button>
+                <div class = "code-content">
+                    <pre><code id="code6" class="language-python"></code></pre>
+                </div>
+                <div class = "code-description">
+                    <p class = "heading">IMD GRD File to GeoTiff File</p>
+                    <p>
+                        The Code Snippet shows how to convert IMD real-time binary (.GRD) weather data
+                        to a more readable GeoTiff data format. It is to be noted that the example .ctl file
+                        used in the snippet corresponds to a 0.5 degree Maximum Temperature file and will change for
+                        other variables provided by IMD. 
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
     <script>
@@ -134,6 +149,7 @@
                 './src/geospatial/0002_script.py',
                 './src/geospatial/0003_script.py',
                 './src/geospatial/0004_script.py',
+                './src/geospatial/0005_script.py',
             ];
 
             files.forEach((file, index) => {
