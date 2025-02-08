@@ -138,6 +138,21 @@
                     </p>
                 </div>
             </div>
+            <div class = "code-body">
+                <button class="copy-button" onclick="copy_to_clipboard('code7', this)" ><p>copy</p></button>
+                <div class = "code-content">
+                    <pre><code id="code7" class="language-python"></code></pre>
+                </div>
+                <div class = "code-description">
+                    <p class = "heading">Cropping Raster and Computing Zonal Statistics</p>
+                    <p>
+                        The Code Snippet shows how to crop a raster using a geometry from a shapefile
+                        with the help of mask function in the rasterio module. The zonal statistics 
+                        (mean is used here) is computed using nanmean function in the numpy module, 
+                        which ignores No Data (nan) value in the raster while computing the statistic.   
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
     <script>
@@ -150,6 +165,7 @@
                 './src/geospatial/0003_script.py',
                 './src/geospatial/0004_script.py',
                 './src/geospatial/0005_script.py',
+                './src/geospatial/0006_script.py'
             ];
 
             files.forEach((file, index) => {

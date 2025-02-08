@@ -108,6 +108,21 @@
                     </p>
                 </div>
             </div>
+            <div class = "code-body">
+                <button class="copy-button" onclick="copy_to_clipboard('code5', this)" ><p>copy</p></button>
+                <div class = "code-content">
+                    <pre><code id="code5" class="language-javascript"></code></pre>
+                </div>
+                <div class = "code-description">
+                    <p class = "heading">Same Date Composite Image Collection</p>
+                    <p>
+                        A Google Earth Engine Script to generate a same date composite 
+                        image collection using a quality band (NDVI is used  here) to mosaic tiles for 
+                        the same date. Sentinel-2 image collection is used as an example here, 
+                        the script can be extended to any image collection with its respective quality band.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
     <script>
@@ -117,7 +132,8 @@
                 './src/gee-scripts/0000_script.js',
                 './src/gee-scripts/0001_script.js',
                 './src/gee-scripts/0002_script.js',
-                './src/gee-scripts/0003_script.js'
+                './src/gee-scripts/0003_script.js',
+                './src/gee-scripts/0004_script.js'
             ];
 
             files.forEach((file, index) => {
